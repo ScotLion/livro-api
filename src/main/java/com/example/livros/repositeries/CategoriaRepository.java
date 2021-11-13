@@ -8,6 +8,6 @@ import com.example.livros.domain.Categoria;
 //@Repository informa que estamos criando um interface de comiunicação para persistencia no banco de dados
 @Repository
 // JpaRepository<p1, p2> p1 é classe a que a inteface vai se referir p2 é tipo da chave primaria da classe
-public interface CategoraRepository extends JpaRepository<Categoria, Integer>{
+public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{
 
 }
