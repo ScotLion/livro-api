@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -31,6 +33,7 @@ public class Livro implements Serializable {
 	private String texto;
 
 	// @ManyToAny n para 1 relação de muito para 1 - muitos livros em uma categoria
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn()
 	private Categoria categoria;
