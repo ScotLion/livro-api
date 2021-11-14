@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,32 +32,32 @@ public class Categoria implements Serializable{
 	// SEQUENCE é usado pelo PostGres, DB2 ...
 	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private String Descricao;
 
 	//@OneToMany é usado para indicar relação de 1 para N uma categoria possui varius livros
 	//mappedBy é usado para mapear
-	@OneToMany(mappedBy = "categoria")
+	@OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
 	private List<Livro> listaLivro = new ArrayList<>();
 
 	public Categoria() {
 		super();
 	}
 
-	public Categoria(Integer id, String nome, String descricao) {
+	public Categoria(Long id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		Descricao = descricao;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
