@@ -32,8 +32,8 @@ public class DBservices {
 				cat2.getListaLivro().addAll(Arrays.asList(livro2));
 				cat3.getListaLivro().addAll(Arrays.asList(livro3));
 
-				this.categoriaRepository.saveAllAndFlush(Arrays.asList(cat1));
-				this.livroRepository.saveAll(Arrays.asList(livro1));
+				this.categoriaRepository.saveAllAndFlush(Arrays.asList(cat1, cat2, cat3));
+				this.livroRepository.saveAll(Arrays.asList(livro1, livro2, livro3));
 	}
 
 }

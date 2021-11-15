@@ -1,5 +1,6 @@
 package com.example.livros.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.apache.catalina.startup.ClassLoaderFactory.Repository;
@@ -20,5 +21,9 @@ public class CategoriaServices {
 		return obj.orElseThrow(() -> new ObjectNotFoundExcepion(
 				"Id não Encontrado: "+ id + " Tipo: " + Categoria.class.getName()
 				));
+	}
+	
+	public List<Categoria> findAll() {
+		return categoriaRepository.findAll();
 	}
 }
